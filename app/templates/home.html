@@ -1,1 +1,15 @@
-<h1>Home Page</h1>
+<header>
+</header>
+<section class="container">
+<aside class="item"><h1>Bloc Chat</h1>
+<div ng-controller="HomeCtrl">
+    <ul>
+        <li ng-repeat="item in roomList">
+            {{ item.$value }}
+        </li>
+    </ul>
+</div>
+</aside>
+<section class="item room">
+</section>
+</section>
