@@ -6,6 +6,12 @@
         
         Room.all = rooms;
         
+        Room.add = function(room) {
+            //firebase method $add
+            rooms.$add(room.name);
+
+        };
+        
         return Room;
     }
     
