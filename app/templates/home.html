@@ -3,17 +3,29 @@
     
     <section class="container" >
     <aside class="item">
-        <div ng-controller: "HomeCtrl">
+        <div >
              <div class = "container2"><h1 class="item1">Bloc Chat</h1>
                 <button type="button" class="btnNewRoom item1" ng-click="open()">New Room</button>
             </div>
              <ul>
-                <li ng-repeat="item in roomList">
+                <li ng-repeat="item in roomList" ng-click="setCurrentRoom(item)">
                     {{ item.$value }}
                 </li>
             </ul>
         </div>
     </aside>
     <section class="item room">
+        <h2>{{ currentRoom.$value }}</h2>
+        <div>
+            <table class="message" ng-repeat="message in currentMessages">
+                <tr>
+                    <td class="username">{{ message.username }}</td>
+                </tr>
+                <tr class="msg-row">
+                    <td>{{ message.content }}</td>
+                    <td class="time">{{ message.sentAt }}</td>
+                </tr>
+            </table>
+        </div>
     </section>
     </section>

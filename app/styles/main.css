@@ -15,6 +15,14 @@ h1{
     margin-left: 10px;
 	}
 
+h2{
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+    color: #eeeeee;
+    margin-left: 10px;
+	}
+
 
 h5{
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
@@ -65,7 +73,6 @@ header {
     align-items: center;
 }
 
-/*
 
 .room {
     background-color: #4b4747;
@@ -73,9 +80,36 @@ header {
     float: right;
 }
 
-.head {
-    float: left;
-}*/
+.message {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+    color: #eeeeee;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+
+
+.msg-row {
+    
+    border-bottom: 1px solid #eeeeee;
+}
+
+.username {
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+tr:nth-child(even){background-color: gray}
+
+.time {
+    float: right;
+}
+
 
 .btnNewRoom {
     height: 30px;
@@ -101,6 +135,4 @@ aside {
     background-color: darkgray;
 }
 
-section {
-    
-}
+
