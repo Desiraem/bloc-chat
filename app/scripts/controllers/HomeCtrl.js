@@ -8,16 +8,22 @@ function HomeCtrl($scope, Room, Message, $uibModal ) {
         $scope.currentRoom = {};
 
         $scope.open = function() {
+            Room.setCurrentUser();
+            if (Room.currentUser != '' && Room.currentUser != undefined ){
                 $uibModal.open({
                 templateUrl: '/templates/modal.html',
                 controller: 'ModalCtrl as modal'
             });
+            }
         };
     
         $scope.setCurrentRoom = function(room) {
-            $scope.currentRoom = room; 
-            console.log(room.$id);
-            $scope.currentMessages = Message.getByRoomId(room.$id);
+            Room.setCurrentUser();
+            if (Room.currentUser ){
+                $scope.currentRoom = room; 
+                console.log(room.$id);
+                $scope.currentMessages = Message.getByRoomId(room.$id);
+            }
         };
             
     }
