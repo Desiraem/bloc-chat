@@ -81,10 +81,21 @@ header {
 
 
 .room {
+    display: flex;
     background-color: #4b4747;
     width: 75%;
     float: right;
+    flex-direction: column;
 }
+
+.room-item {
+    
+}
+
+/*.room-footer {
+    align-self: flex-end;
+    bottom: 0;
+}*/
 
 .message {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
@@ -161,4 +172,42 @@ aside {
     
 }
 
+.new-message-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #eeeeee;
+    visibility: hidden;
+}
+
+/*
+footer {
+    position: relative;
+    bottom: 0;
+    width: 75%;
+}
+
+
+.new-message {
+    font-family:"Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+	font-weight: normal;
+   
+}
+*/
+
+.newMessageText {
+    width: 90%;
+}
+
+.message-item {
+    width: 10%;
+    font-family:"Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+	font-weight: normal;
+    vertical-align: middle;
+}
 

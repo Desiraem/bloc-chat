@@ -1,5 +1,5 @@
 (function() {   
-function HomeCtrl($scope, Room, Message, $uibModal ) {
+function HomeCtrl($scope, Room, Message, $uibModal, $filter ) {
        //var home = this;
         
         $scope.roomList = Room.all;
@@ -25,12 +25,23 @@ function HomeCtrl($scope, Room, Message, $uibModal ) {
                 $scope.currentMessages = Message.getByRoomId(room.$id);
             }
         };
+    
+        $scope.setCurrentTime = function(){
+            $scope.currentTime = $filter('date')(new Date(), 'dd/MM/yyyy HH:mm:ss');
+        }
+        
+        $scope.sendMessage = function(message) {
+          //use new functions in Message.send(message)
+            $scope.setCurrentTime();
+            Message.send(message, $scope.currentRoom.$id, $scope.currentTime);
+            $scope.newMessage = '';
+        };
             
     }
     
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$scope', 'Room', 'Message', '$uibModal',  HomeCtrl]);
+        .controller('HomeCtrl', ['$scope', 'Room', 'Message', '$uibModal', '$filter',  HomeCtrl]);
     })();
 
 

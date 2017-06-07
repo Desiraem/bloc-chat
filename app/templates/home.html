@@ -2,30 +2,35 @@
 </header>
     
     <section class="container" >
-    <aside class="item">
-        <div >
-             <div class = "container2"><h1 class="item1">Bloc Chat</h1>
-                <button type="button" class="btnNewRoom item1" ng-click="open()">New Room</button>
+        <aside class="item">
+            <div >
+                 <div class = "container2"><h1 class="item1">Bloc Chat</h1>
+                    <button type="button" class="btnNewRoom item1" ng-click="open()">New Room</button>
+                </div>
+                 <ul>
+                    <li ng-repeat="item in roomList" ng-click="setCurrentRoom(item)">
+                        {{ item.$value }}
+                    </li>
+                </ul>
             </div>
-             <ul>
-                <li ng-repeat="item in roomList" ng-click="setCurrentRoom(item)">
-                    {{ item.$value }}
-                </li>
-            </ul>
-        </div>
-    </aside>
-    <section class="item room">
-        <h2>{{ currentRoom.$value }}</h2>
-        <div>
-            <table class="message" ng-repeat="message in currentMessages">
-                <tr>
-                    <td class="username">{{ message.username }}</td>
-                </tr>
-                <tr class="msg-row">
-                    <td>{{ message.content }}</td>
-                    <td class="time">{{ message.sentAt }}</td>
-                </tr>
-            </table>
-        </div>
-    </section>
+        </aside>
+        <section class="item room">
+            <h2 class="room-item">{{ currentRoom.$value }}</h2>
+            <div>
+                <table class="message" ng-repeat="message in currentMessages">
+                    <tr>
+                        <td class="username">{{ message.username }}</td>
+                    </tr>
+                    <tr class="msg-row">
+                        <td>{{ message.content }}</td>
+                        <td class="time">{{ message.sentAt }}</td>
+                    </tr>
+                </table>
+            </div>
+            <footer class="new-message-container room-footer" ng-style="{'visibility': currentRoom.$value != undefined ? 'visible' : 'hidden'}">
+                <input id="newmessage" class="newMessageText" type="text" name="message" placeholder="Type new message here..." ng-model="newMessage">
+                <button class="message-item" type="button" ng-click="sendMessage(newMessage)">Send</button>
+            </footer>
+
+        </section>
     </section>
